@@ -8,7 +8,7 @@ export class Aluno {
   @Column({ type: 'varchar', length: 255, nullable: false })
   nome: string;
 
-  @Column({ type: 'integer', length: 20, nullable: true })
+  @Column({ type: 'bigint', nullable: true })
   telefone_pais?: string | null;
 
   @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
@@ -17,7 +17,7 @@ export class Aluno {
   @Column({ type: 'varchar', length: 255, nullable: false })
   senha: string;
 
-  @Column({ type: 'integer', length: 50, unique: true, nullable: false })
+  @Column({ type: 'bigint', unique: true, nullable: false })
   ra: number;
 
   @Column({

@@ -7,36 +7,30 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      # Mapeia o código fonte para hot-reloading
       - ./src:/usr/src/app/src
-      - ./test:/usr/src/app/test # Se tiver testes
-      # Mapeia arquivos de configuração essenciais
+      - ./test:/usr/src/app/test
       - ./package.json:/usr/src/app/package.json
-      - ./package-lock.json:/usr/src/app/package-lock.json # ou yarn.lock
+      - ./package-lock.json:/usr/src/app/package-lock.json
       - ./tsconfig.json:/usr/src/app/tsconfig.json
       - ./tsconfig.build.json:/usr/src/app/tsconfig.build.json
       - ./nest-cli.json:/usr/src/app/nest-cli.json
-      # Volume anônimo para node_modules para evitar sobrescrever o do container
       - /usr/src/app/node_modules
-      # Não montar a 'dist' do host, deixe o container gerenciá-la com 'nest start --watch'
     command: npm run start:dev
     environment:
       NODE_ENV: development
       PORT: 3000
       DB_HOST: db_postgres
       DB_PORT: 5432
-      DB_USERNAME: ${POSTGRES_USER} # Lendo do .env
-      DB_PASSWORD: ${POSTGRES_PASSWORD} # Lendo do .env
-      DB_DATABASE: ${POSTGRES_DB} # Lendo do .env
-      DB_SYNCHRONIZE: "true" # Deve ser string se lido como env var, ou boolean se direto
-      DB_LOGGING: "true" # Deve ser string se lido como env var, ou boolean se direto
+      DB_USERNAME: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_DATABASE: ${POSTGRES_DB}
+      DB_SYNCHRONIZE: "true"
+      DB_LOGGING: "true"
     depends_on:
       db_postgres:
-        condition: service_healthy # Espera o healthcheck do postgres passar
+        condition: service_healthy
     networks:
       - app-network
-    # env_file: # Descomente e adicione se seu arquivo .env tiver outro nome ou local
-    #   - ./.env
 
   db_postgres:
     container_name: postgres_db
@@ -44,9 +38,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: ${POSTGRES_USER} # Lendo do .env
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Lendo do .env
-      POSTGRES_DB: ${POSTGRES_DB} # Lendo do .env
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
@@ -55,7 +49,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 10s # Adicionado para dar tempo ao postgres de iniciar antes do primeiro healthcheck
+      start_period: 10s
     networks:
       - app-network
 

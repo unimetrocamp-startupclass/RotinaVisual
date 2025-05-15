@@ -5,25 +5,25 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    // Importe o ConfigModule para usar o ConfigService
-    // Certifique-se de que ConfigModule.forRoot() está em seu AppModule globalmente ou aqui
     ConfigModule.forRoot({ 
-      isGlobal: true, // Ou configure conforme sua necessidade
-      envFilePath: '.env', // Especifica o arquivo .env
+      isGlobal: true,
+      envFilePath: '.env',
     }), 
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule], // Importa o ConfigModule para a factory
-      useFactory: (configService: ConfigService) => ({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => {
+        return {
         type: 'postgres',
         host: configService.get<string>('DB_HOST'),
         port: parseInt(configService.get<string>('DB_PORT', '5432'), 10),
-        username: configService.get<string>('DB_USERNAME'),
-        password: configService.get<string>('DB_PASSWORD'),
-        database: configService.get<string>('DB_DATABASE'),
+        username: 'admin_core',
+        password: 'pacoca',
+        database: 'db_postgres',
         autoLoadEntities: true,
-        synchronize: configService.get<string>('DB_SYNCHRONIZE') === 'true', // Converte string para boolean
-        logging: configService.get<string>('DB_LOGGING') === 'true', // Converte string para boolean
-      }),
+        synchronize: true,
+        logging: configService.get<string>('DB_LOGGING') === 'true',
+        };
+      },
       inject: [ConfigService], // Injeta o ConfigService na factory
     }),
   ],
