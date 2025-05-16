@@ -45,12 +45,8 @@ export default function Home() {
                 <X size={28} weight="bold" onClick={toggleCard} />
               </CloseButton>
               <OpenCardTitleInfo>
-                <OpenCardDateTime>
-                  <Calendar size={20} />
-                  <span>09/10/2023 - 09:30</span>
-                </OpenCardDateTime>
-                <OpenCardLeftInfo>
                   <OpenCardColor />
+                <OpenCardLeftInfo>
                   <ProfessorContainer>
                     <CardBottomPhoto>
                       <Image
@@ -66,6 +62,10 @@ export default function Home() {
                     </span>
                   </ProfessorContainer>
                 </OpenCardLeftInfo>
+                <OpenCardDateTime>
+                  <Calendar size={20} />
+                  <span>09/10/2023 - 09:30</span>
+                </OpenCardDateTime>
               </OpenCardTitleInfo>
               <OpenCardMiddleContent>
                 <OpenCardTitle>Hora do brinquedo</OpenCardTitle>
@@ -166,8 +166,7 @@ const CardBottomPhoto = styled.div`
 `;
 
 const OpenCard = styled.div`
-  max-width: 900px;
-  max-height: 700px;
+  width: 600px;
   background-color: hsl(0, 0%, 98%);
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 20px;
@@ -181,6 +180,7 @@ const OpenCard = styled.div`
 
 const OpenCardMainContent = styled.div`
   display: flex;
+  gap: 1rem;
   flex-direction: row;
 `;
 
@@ -189,7 +189,7 @@ const OpenCardTitleInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 1.5rem;
   
