@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { AlunoService } from './aluno.service';
 import { CreateAlunoDto } from './create-aluno.dto';
+import { UpdateAlunoDto } from './update-aluno.dto';
 
 @Controller('aluno')
 export class AlunoController {
