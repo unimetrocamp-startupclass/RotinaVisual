@@ -4,19 +4,19 @@ import { CardData } from '../src/types';
 
 const Home: React.FC = () => {
  const topCards: CardData[] = [
-  { title: 'Card 1', description: 'Descrição do card 1' },
-  { title: 'Card 2', description: 'Descrição do card 2' },
-  { title: 'Card 3', description: 'Descrição do card 3' },
-  { title: 'Card 4', description: 'Descrição do card 4' },
-  { title: 'Card 5', description: 'Descrição do card 5' },
+  { title: 'Column 1', description: 'Descrição do card 1' },
+  { title: 'Column 2', description: 'Descrição do card 2' },
+  { title: 'Column 3', description: 'Descrição do card 3' },
+  { title: 'Column 4', description: 'Descrição do card 4' },
+  { title: 'Column 5', description: 'Descrição do card 5' },
 ];
 
 const bottomCards: CardData[] = [
-  { title: 'Card 6', description: 'Descrição do card 6' },
-  { title: 'Card 7', description: 'Descrição do card 7' },
-  { title: 'Card 8', description: 'Descrição do card 8' },
-  { title: 'Card 9', description: 'Descrição do card 9' },
-  { title: 'Card 10', description: 'Descrição do card 10' },
+  { title: 'Column 6', description: 'Descrição do card 6' },
+  { title: 'Column 7', description: 'Descrição do card 7' },
+  { title: 'Column 8', description: 'Descrição do card 8' },
+  { title: 'Column 9', description: 'Descrição do card 9' },
+  { title: 'Column 10', description: 'Descrição do card 10' },
 ];
 
   return (

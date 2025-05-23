@@ -1,6 +1,7 @@
 import React from 'react';
+import Column from './Column';
+import { CardData } from '@/types';
 import Card from './Card';
-import { CardData } from '@/src/types';
 
 interface CardGridProps {
   cards: CardData[];
@@ -22,7 +23,9 @@ const CardGrid: React.FC<CardGridProps> = ({
           <div className="day-label">
             {days[index]}
           </div>
-          <Card {...card} />
+          <Column {...card}>
+            {/* <Card /> */}
+          </Column>
         </div>
       ))}
 

@@ -1,11 +1,30 @@
+"use client";
+
+import { CardData } from '@/types';
 import Header from '../src/components/header';
-import styles from "./page.module.css";
+import CardGrid from '@/components/CardGrid';
+import styled from 'styled-components';
 
 export default function Home() {
+  const topCards: CardData[] = [
+    { title: 'Column 1', description: 'Descrição do card 1' },
+    { title: 'Column 2', description: 'Descrição do card 2' },
+    { title: 'Column 3', description: 'Descrição do card 3' },
+    { title: 'Column 4', description: 'Descrição do card 4' },
+    { title: 'Column 5', description: 'Descrição do card 5' },
+  ];
+
+  const bottomCards: CardData[] = [
+    { title: 'Column 6', description: 'Descrição do card 6' },
+    { title: 'Column 7', description: 'Descrição do card 7' },
+    { title: 'Column 8', description: 'Descrição do card 8' },
+    { title: 'Column 9', description: 'Descrição do card 9' },
+    { title: 'Column 10', description: 'Descrição do card 10' },
+  ];
 
   return (
     <>
-      <Header 
+      <Header
         rightContent={
           <div style={{
             backgroundColor: '#D9F0DB',
@@ -13,26 +32,49 @@ export default function Home() {
             padding: '10px 15px',
             display: 'flex',
             alignItems: 'center',
-            gap: '8px' }}>
-            <img src="/usuario.webp" alt="Perfil" style={{ borderRadius: '50%', width: '40px', height: '38px' }}/>
+            gap: '8px'
+          }}>
+            <img src="/usuario.webp" alt="Perfil" style={{ borderRadius: '50%', width: '40px', height: '38px' }} />
             <span>João Paulo Martins</span>
-            <img src="/Seta.webp" alt="seta" style={{ width: '20px', height: '20px' }}/>
+            <img src="/Seta.webp" alt="seta" style={{ width: '20px', height: '20px' }} />
           </div>
         }
       />
 
-    <main className={styles.mainDiv}>
-      <div className={styles.textDiv}>
-        <h1>Rotina Visual</h1>
-        <h4>Um sistema para auxílio de rotina para neurodiersos</h4>
-        <p>
-          <strong>Descrição:</strong> Um sistema que permite criar e
-          personalizar rotinas visuais para alunos neurodivergentes. Essas
-          rotinas podem incluir imagens, vídeos e descrições curtas para
-          facilitar a compreensão do que deve ser feito.
-        </p>
-      </div>
-    </main>
+      <MainContent>
+        <CardGrid
+          cards={topCards}
+          showDaysDesktop={true}
+        />
+
+        <WeekDivider>
+          Segunda Semana
+        </WeekDivider>
+
+        <CardGrid
+          cards={bottomCards}
+          showDaysDesktop={false}
+          isSecondWeek={true}
+        />
+      </MainContent>
     </>
   );
 }
+
+const MainContent = styled.main`
+  margin-top: 7rem;
+`;
+
+const WeekDivider = styled.div`
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 15px 0;
+  display: none;
+  padding: 8px;
+  background: #f5f5f5;
+  border-radius: 5px;
+  
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
