@@ -7,14 +7,58 @@
   height: 100vh;
 }
 
-.textDiv {
-  max-width: 30rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.dayContainer {
+  width: 321px;
+  height: 406px;
+  background-color: #F2F2F2;
+  padding: 1rem;
 }
 
-.textDiv h1 {
-  font-size: larger;
+.cardContainer {
+  background-color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 5px;
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #DBDBDB;
+}
+
+.cardTitleContainer {
+  width: 100%;
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardBottomTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+}
+
+.cardBottomTime span {
+  font-size: 0.8rem;
+}
+
+.cardBottomPhoto {
+  display: flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
