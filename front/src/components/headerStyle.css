@@ -1,0 +1,82 @@
+.header {
+    margin: 16px;
+    position: fixed;
+    width: calc(100% - 32px);
+    background-color: rgba(229, 229, 229, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+main {
+  margin-top: 100px;
+}
+
+.header-left {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+}
+
+.empresa {
+  font-weight: bold;
+  font-size: 25px;
+  color: #000;
+}
+
+.nav {
+  display: flex;
+  font-size: 14px;
+  color: #444;
+}
+
+.nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.nav a:not(:first-child) {
+  border-left: 1px solid #ccc;
+}
+
+.header-right {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.aluno {
+    background: #FFF500;
+    background: linear-gradient(90deg, rgba(255, 245, 0, 1) 0%, rgba(255, 221, 0, 1) 100%);
+    color: #000;
+}
+
+.professor {
+  background-color: transparent;
+  color: #ffeb3b;
+  border: 2px solid #ffeb3b;
+}
+

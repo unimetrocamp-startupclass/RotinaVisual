@@ -1,0 +1,61 @@
+services:
+  app:
+    container_name: nestjs_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./test:/usr/src/app/test
+      - ./package.json:/usr/src/app/package.json
+      - ./package-lock.json:/usr/src/app/package-lock.json
+      - ./tsconfig.json:/usr/src/app/tsconfig.json
+      - ./tsconfig.build.json:/usr/src/app/tsconfig.build.json
+      - ./nest-cli.json:/usr/src/app/nest-cli.json
+      - /usr/src/app/node_modules
+    command: npm run start:dev
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DB_HOST: db_postgres
+      DB_PORT: 5432
+      DB_USERNAME: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_DATABASE: ${POSTGRES_DB}
+      DB_SYNCHRONIZE: "true"
+      DB_LOGGING: "true"
+    depends_on:
+      db_postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  db_postgres:
+    container_name: postgres_db
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge
