@@ -13,7 +13,6 @@ export default function Card() {
 
   return (
     <StyledMainDiv>
-      <DayContainer>
         <CardContainer onClick={toggleCard}>
           <CardColor />
           <CardContent>
@@ -36,7 +35,6 @@ export default function Card() {
             </CardBottom>
           </CardContent>
         </CardContainer>
-      </DayContainer>
       {showCard && (
         <>
           <OpenCard>
@@ -85,20 +83,8 @@ export default function Card() {
 }
 
 const StyledMainDiv = styled.main`
+  margin: 0;
   color: hsl(0, 0%, 10%);
-  margin: auto;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-`;
-
-const DayContainer = styled.div`
-  width: 321px;
-  height: 406px;
-  background-color: #f2f2f2;
-  padding: 1rem;
 `;
 
 const CardContainer = styled.button`

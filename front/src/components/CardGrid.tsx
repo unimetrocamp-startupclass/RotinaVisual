@@ -24,7 +24,7 @@ const CardGrid: React.FC<CardGridProps> = ({
             {days[index]}
           </div>
           <Column {...card}>
-            {/* <Card /> */}
+            <Card />
           </Column>
         </div>
       ))}
