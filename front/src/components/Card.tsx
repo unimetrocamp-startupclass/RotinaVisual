@@ -92,7 +92,6 @@ const CardContainer = styled.button`
   background-color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
-  min-height: 92px;
   display: flex;
   flex-direction: row;
   border: 1px solid #dbdbdb;
@@ -103,7 +102,7 @@ const CardContainer = styled.button`
 const CardColor = styled.div`
   background-color: hsl(0, 95.85062240663899%, 47.254901960784316%);
   width: 4%;
-  height: 6rem;
+  height: 5rem;
 `;
 
 const CardContent = styled.div`

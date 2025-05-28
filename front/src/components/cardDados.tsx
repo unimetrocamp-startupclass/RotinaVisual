@@ -2,7 +2,7 @@ import styles from './cardDados.module.css';
 
 interface DadoPessoalProps {
     titulo: string;
-    valor: string;
+    valor?: string;
 }
 
 export default function DadoPessoal({ titulo, valor }: DadoPessoalProps) {
