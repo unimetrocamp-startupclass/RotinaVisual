@@ -5,7 +5,11 @@
   margin-bottom: 12px;
   width: 100%;
   max-width: 300px;
-  border: 1PX solid #CACACA;
+  border: 1px solid #CACACA;
+}
+
+.caixaCompleta {
+  max-width: 100% !important;
 }
 
 .titulo {
