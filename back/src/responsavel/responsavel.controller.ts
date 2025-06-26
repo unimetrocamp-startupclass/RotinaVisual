@@ -7,9 +7,9 @@ import { UpdateResponsavelDto } from './update-responsavel.dto';
 export class ResponsavelController {        // Dependency injection
         constructor(private responsavelService: ResponsavelService) {}
         @Post()
-        createProfessor(@Body() CreateResponsavelDtoBody: CreateResponsavelDto) {
+        createResponsavel(@Body() createResponsavelDtoBody: CreateResponsavelDto) {
             // Caso tenha algum erro de validação, a DTO envia o erro antes e nem passa pelo return
-            return this.responsavelService.createResponsavel(CreateResponsavelDtoBody);
+            return this.responsavelService.createResponsavel(createResponsavelDtoBody);
         }
     
         @Get()
@@ -30,4 +30,5 @@ export class ResponsavelController {        // Dependency injection
         @Delete(':id')
         deleteResponsavel(@Param('id') id: number){
             return this.responsavelService.deleteResponsavel(+id);
-        }}
+        }
+}
