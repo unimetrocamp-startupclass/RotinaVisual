@@ -5,26 +5,26 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ 
+    ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
-    }), 
+    }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {
         return {
-        type: 'postgres',
-        host: configService.get<string>('DB_HOST'),
-        port: parseInt(configService.get<string>('DB_PORT', '5432'), 10),
-        username: 'admin_core',
-        password: 'pacoca',
-        database: 'db_postgres',
-        autoLoadEntities: true,
-        synchronize: true,
-        logging: configService.get<string>('DB_LOGGING') === 'true',
+          type: 'postgres',
+          host: configService.get<string>('DB_HOST'),
+          port: configService.get<number>('DB_PORT'),
+          username: configService.get<string>('DB_USERNAME'),
+          password: configService.get<string>('DB_PASSWORD'),
+          database: configService.get<string>('DB_DATABASE'),
+          autoLoadEntities: true,
+          synchronize: configService.get<boolean>('DB_SYNCHRONIZE'),
+          logging: configService.get<boolean>('DB_LOGGING'),
         };
       },
-      inject: [ConfigService], // Injeta o ConfigService na factory
+      inject: [ConfigService],
     }),
   ],
   exports: [TypeOrmModule],

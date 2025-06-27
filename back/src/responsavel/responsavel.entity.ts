@@ -1,5 +1,12 @@
 import { Aluno } from 'src/aluno/aluno.entity';
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany,
+} from 'typeorm';
 
 @Entity('Responsavel')
 export class Responsavel {
@@ -15,7 +22,7 @@ export class Responsavel {
   @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
   email: string;
 
-  @Column({ type: 'bigint', nullable: false})
+  @Column({ type: 'bigint', nullable: false })
   telefone: string;
 
   @Column({ type: 'date', nullable: true })

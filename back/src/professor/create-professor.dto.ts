@@ -10,6 +10,7 @@ import {
   IsDateString,
   IsBoolean,
   IsNumber,
+  Length,
 } from 'class-validator';
 
 export enum DisciplinaEnum {
@@ -35,10 +36,9 @@ export class CreateProfessorDto {
   readonly sobrenome: string;
 
   @IsNotEmpty()
-  @IsNumber()
   @MinLength(11)
   @MaxLength(11)
-  readonly cpf: number;
+  readonly cpf: string;
 
   @IsEmail()
   @IsNotEmpty()
@@ -74,5 +74,4 @@ export class CreateProfessorDto {
 
   @IsOptional()
   readonly atividadeID: number;
-
 }

@@ -8,7 +8,14 @@ import { DatabaseModule } from './database/database.module';
 import { ResponsavelModule } from './responsavel/responsavel.module';
 
 @Module({
-  imports: [AlunoModule, ProfessorModule, AtividadeModule, DatabaseModule, DatabaseModule, ResponsavelModule],
+  imports: [
+    AlunoModule,
+    ProfessorModule,
+    AtividadeModule,
+    DatabaseModule,
+    DatabaseModule,
+    ResponsavelModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

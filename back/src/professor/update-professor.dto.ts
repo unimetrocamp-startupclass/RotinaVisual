@@ -35,10 +35,9 @@ export class UpdateProfessorDto {
   readonly sobrenome: string;
 
   @IsNotEmpty()
-  @IsNumber()
   @MinLength(11)
   @MaxLength(11)
-  readonly cpf: number;
+  readonly cpf: string;
 
   @IsEmail()
   @IsNotEmpty()
@@ -74,5 +73,4 @@ export class UpdateProfessorDto {
 
   @IsOptional()
   readonly atividadeID: number;
-
 }

@@ -30,8 +30,8 @@ export class UpdateAtividadeDto {
 
   @IsNotEmpty()
   @IsString()
-  @MinLength(4)
-  @MaxLength(4)
+  @MinLength(5)
+  @MaxLength(5)
   readonly hora: string;
 
   @IsNotEmpty()
@@ -39,5 +39,4 @@ export class UpdateAtividadeDto {
 
   @IsNotEmpty()
   readonly alunoID: number;
-
 }

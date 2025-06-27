@@ -1,5 +1,4 @@
 import {
-  IsEmail,
   IsNotEmpty,
   IsString,
   MinLength,
@@ -10,6 +9,8 @@ import {
   IsDateString,
   IsBoolean,
   IsNumber,
+  Min,
+  Max,
 } from 'class-validator';
 
 export enum DivergenciaEnum {
@@ -34,10 +35,9 @@ export class CreateAlunoDto {
   readonly sobrenome: string;
 
   @IsNotEmpty()
-  @IsNumber()
   @MinLength(11)
   @MaxLength(11)
-  readonly cpf: number;
+  readonly cpf: string;
 
   @IsNotEmpty()
   @IsNumber()
@@ -46,7 +46,7 @@ export class CreateAlunoDto {
   @IsOptional()
   @IsDateString()
   readonly data_nascimento?: string | Date | null;
-  
+
   /*
   @IsOptional()
   @IsString()
@@ -90,5 +90,4 @@ export class CreateAlunoDto {
 
   @IsOptional()
   readonly atividadeID: number;
-
 }
