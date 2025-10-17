@@ -13,7 +13,6 @@ import { ResponsavelModule } from './responsavel/responsavel.module';
     ProfessorModule,
     AtividadeModule,
     DatabaseModule,
-    DatabaseModule,
     ResponsavelModule,
   ],
   controllers: [AppController],

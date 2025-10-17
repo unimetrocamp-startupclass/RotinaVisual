@@ -8,7 +8,6 @@ export class ResponsavelController {        // Dependency injection
         constructor(private responsavelService: ResponsavelService) {}
         @Post()
         createResponsavel(@Body() createResponsavelDtoBody: CreateResponsavelDto) {
-            // Caso tenha algum erro de validação, a DTO envia o erro antes e nem passa pelo return
             return this.responsavelService.createResponsavel(createResponsavelDtoBody);
         }
     

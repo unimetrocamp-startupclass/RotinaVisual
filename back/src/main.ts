@@ -15,7 +15,7 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
-      transform: true, // Transforma o payload para o tipo do DTO (ex: string para number)
+      transform: true,
       transformOptions: {
         enableImplicitConversion: true,
       },
